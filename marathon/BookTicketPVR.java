@@ -40,7 +40,7 @@ public class BookTicketPVR {
 		Thread.sleep(5000);
 		driver.findElement(By.xpath("//button[text()='Accept']")).click();
 		//select available seat
-		WebElement selectSeat = driver.findElement(By.xpath("((//div[@class='seat-flow-custom-scroll']/tr[@class='seats-row'])[4]//span[@id='CL.CLUB|J:20'])"));
+		WebElement selectSeat = driver.findElement(By.xpath("((//div[@class='seat-flow-custom-scroll']/tr[@class='seats-row'])[4]//span[@id='CL.CLUB|J:15'])"));
 		boolean check = selectSeat.isEnabled();
 		//System.out.println(check);
 		if(check == true) {
@@ -49,9 +49,9 @@ public class BookTicketPVR {
 		}
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//button[text()='Proceed']")).click();
-		String seatInfo = driver.findElement(By.xpath("//div[@class='ticket-value']")).getText();
+		String seatInfo = driver.findElement(By.xpath("//div[@class='seat-info']//p")).getText();
 		System.out.println("Seat info : " + seatInfo);
-		String grandTotal = driver.findElement(By.xpath("//div[@class='grand-tota col-md-3']/h6[1]")).getText();
+		String grandTotal = driver.findElement(By.xpath("//div[@class='grand-tota col-md-3']//span")).getText();
 		System.out.println("Grand Total : " + grandTotal);
 		//click proceed button
 		driver.findElement(By.xpath("//div[@class='register-btn col-md-3']/button")).click();
